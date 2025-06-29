@@ -1,24 +1,289 @@
-<!-- 
-HTML Template for Missions, delete and replace with mission HTML
--->
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Gnius Club</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook Misión 8 : Contando Historias con Realidad Aumentada</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-  <h1>
-    Playbook HTML Placeholder Template
-  </h1>
-  <p>
-    Replace with actual playbook code.
-  </p>
-  <script src="script.js"></script>
-</body>
 
+    <header>
+        <h1><span class="book-icon">📋</span> <strong>Playbook Misión 8 : Contando Historias con Realidad Aumentada</strong></h1>
+        <div class="header-widgets">
+            <div class="timer-container">
+                <span id="timer">⏱️ 00:00</span>
+                <button id="startStop">Start</button>
+                <button id="reset">Reset</button>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-input">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="activity-list">
+            <h2>Actividades</h2>
+            <ul>
+                <li><a href="#activity-0">📝</a></li>
+                <li><a href="#activity-1">1</a></li>
+                <li><a href="#activity-2">2</a></li>
+                <li><a href="#activity-3">3</a></li>
+                <li><a href="#activity-4">4</a></li>
+                <li><a href="#activity-5">5</a></li>
+            </ul>
+
+            <div class="sidebar-info">
+                <p>💡 Cada actividad está cuidadosamente diseñada para involucrar a los estudiantes.</p>
+                <p>⏱️ Se proporcionan estimaciones de tiempo para cada actividad para ayudarle a mantener el rumbo.</p>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+
+            <button id="toggle-dialogues">Mostrar todos los diálogos</button>
+
+            <div class="activity-card" id="activity-0">
+                <h2><span class="book-icon">📝</span> De un Vistazo: Misión Gnius</h2>
+                <p class="overview-subtitle">Resumen rápido de objetivos, materiales y preparación para el facilitador.</p>
+                <div class="overview-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">Objetivos, Tácticas y Entregable</th>
+                                <th style="width: 50%;">Materiales Específicos y Preparación Previa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Objetivos:</strong>
+                                    <ul>
+                                        <li>Diseñar una narrativa interactiva simple para una experiencia de Realidad Aumentada.</li>
+                                        <li>Utilizar un LLM (Xolo) como colaborador creativo guiado por un framework de storytelling.</li>
+                                        <li>Generar un guion y conceptos visuales para un Cubo AR interactivo.</li>
+                                    </ul>
+                                    <strong>Secuencia de Clase:</strong>
+                                    <ul>
+                                        <li><strong class="tactic-highlight">⚡Saludo Interactivo con IA:</strong> Contextualización de la AR como medio narrativo.</li>
+                                        <li><strong class="tactic-highlight">⚡"I Can Statement" + Presentación del Desafío:</strong> Introducción al diseño narrativo estructurado.</li>
+                                        <li><strong class="tactic-highlight">⚡AI GYM:</strong> Adquisición conceptual del framework de Storytelling Interactivo de Tres Actos.</li>
+                                        <li><strong class="tactic-highlight">⚡Brain Spark:</strong> Aplicación práctica del framework para crear un storyboard (guion + visuales) con IA.</li>
+                                        <li><strong class="tactic-highlight">⚡Gnius STORM:</strong> Retroalimentación estructurada entre pares sobre los storyboards.</li>
+                                    </ul>
+                                    <strong>Entregable Clave:</strong>
+                                    <ul>
+                                        <li>Un "storyboard" (documento digital o físico) para una experiencia de 6 caras en el Merge Cube. Debe incluir el texto para cada cara (generado por LLM) y una imagen conceptual para cada cara (generada por IA de imagen).</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <strong>Materiales Específicos:</strong>
+                                    <ul>
+                                        <li>Proyector o pantalla interactiva.</li>
+                                        <li>Conexión a internet estable.</li>
+                                        <li>Acceso a un LLM para escritura creativa (ej. ChatGPT, Claude).</li>
+                                        <li>Acceso a una herramienta de IA generativa de imágenes (ej. KREA.ai).</li>
+                                        <li>Chat "Agente Gnius" (Xolo) activo y funcionando.</li>
+                                        <li>Presentación de diapositivas (Diapositivas 1-11).</li>
+                                    </ul>
+                                    <strong>Preparación Previa para ESTA Sesión:</strong>
+                                    <ol>
+                                        <li><strong>Revisión de Misión (Interna):</strong>
+                                            <ul>
+                                                <li>Verificar el acceso de los estudiantes al LLM y a la herramienta de imágenes IA designadas.</li>
+                                                <li>Tener una plantilla de storyboard simple preparada (opcional, puede ser un documento en blanco).</li>
+                                                <li>Tener la presentación de diapositivas lista.</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Familiarización:</strong> Internalizar el framework de Tres Actos adaptado a las 6 caras del cubo para poder guiar a los estudiantes de manera efectiva.</li>
+                                    </ol>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="activity-card" id="activity-1">
+                <h2>⚡ Actividad 1: Saludo de I.A. y Contexto de Misión ⏰ 3 minutos</h2>
+                <p>Establecer un ambiente de trabajo profesional, contextualizar la misión del día y guiar la activación individualizada de Xolo, el copiloto de IA.</p>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 1: Bienvenida y Contexto ⏰ 1 minuto</h3>
+                            <p>(Proyectar Diapositiva 2) El facilitador da la bienvenida y presenta la misión: convertir la AR en un medio para contar historias.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Desarrolladores. Ya pueden anclar objetos digitales en la realidad. Pero un objeto sin historia es solo un adorno. Hoy, se convertirán en narradores. Aprenderán a usar la Realidad Aumentada no solo para mostrar, sino para contar. Su misión es diseñar una historia que se desarrolle en las caras del Merge Cube. Cada cara, una escena; cada giro, un nuevo capítulo."</p>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 2: Activación de IA y Perfil ⏰ 2 minutos</h3>
+                            <p>El facilitador da la instrucción explícita a los alumnos para que saluden a Xolo en el chat.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Inicien su sesión. Abran el chat y envíen su saludo de activación a Xolo, incluyendo su perfil e intereses para la Misión 8."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card" id="activity-2">
+                <h2>⚡ Actividad 2: "I Can Statement" y Presentación del Desafío ⏰ 7 minutos</h2>
+                <p>Clarificar las metas de aprendizaje y presentar el diseño narrativo como una habilidad fundamental.</p>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 1: El Desafío del Día ⏰ 4 minutos</h3>
+                            <p>(Proyectar Diapositiva 3) El facilitador introduce la necesidad de una estructura narrativa (framework) para guiar la creación.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Esta es una sesión de 'Studio' centrada en el diseño narrativo. Una buena experiencia interactiva necesita una estructura. No podemos simplemente poner texto e imágenes al azar. Hoy aprenderán a usar un framework de storytelling simple para planificar su historia y luego dirigirán a una IA para que les ayude a escribirla y visualizarla. El objetivo es crear un guion y un plan visual para su Cubo AR interactivo."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 2: Objetivo de Aprendizaje (I Can Statement) ⏰ 3 minutos</h3>
+                            <p>(Proyectar Diapositiva 4) El facilitador presenta el objetivo de aprendizaje concreto de la sesión.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Al finalizar esta sesión, podrán afirmar: <strong>'Yo puedo diseñar una narrativa interactiva simple usando un framework de storytelling y dirigir a un LLM para co-escribir y conceptualizar visualmente la historia.'</strong>"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card" id="activity-3">
+                <h2>⚡ Actividad 3: A.I. GYM ⏰ 10 minutos</h2>
+                <p>Guiar a los estudiantes para que comprendan el framework de storytelling y cómo usarlo para dirigir a las IAs creativas.</p>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 1: Diálogo Conceptual con Xolo ⏰ 10 minutos</h3>
+                            <p>(Proyectar Diapositiva 5) El facilitador instruye a los estudiantes sobre cómo iniciar su diálogo con Xolo para aprender el workflow narrativo.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Entramos al A.I. GYM. Para estructurar su creatividad, necesitan un plan. Inicien un diálogo con Xolo: <strong>'Xolo, explícame el framework de Storytelling Interactivo de Tres Actos para el Merge Cube y cómo puedo usarlo para dirigir a un LLM y a una IA de imágenes.'</strong> Él les presentará la estructura y les explicará cómo usarla para dar instrucciones precisas a sus colaboradores de IA."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card" id="activity-4">
+                 <h2>⚡ Actividad 4: Brain Spark ⏰ 15 minutos</h2>
+                <p>Supervisar el workflow de crear un guion y un storyboard completos usando el framework y las IAs.</p>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 1: El Guion del Cubo AR ⏰ 5 minutos</h3>
+                            <p>(Proyectar Diapositiva 6) Los equipos eligen un género y usan el framework de Xolo para diseñar la estructura de su historia.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Ahora, al Brain Spark. En equipos, elijan un género: ciencia ficción, fantasía, misterio. Piensen en una historia simple con un personaje, un objetivo y un obstáculo. Usando el framework de Tres Actos, definan qué sucede en cada par de caras del cubo. Luego, describan esta estructura a Xolo y pídanle que les ayude a detallar cada escena."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 2: Creación del Storyboard ⏰ 10 minutos</h3>
+                            <p>(Proyectar Diapositiva 7) Los equipos usan las IAs para generar el contenido del storyboard.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                 <p class="dialogue assistant">"Con la estructura clara, dirijan a sus IAs. Pídanle a un LLM que escriba un párrafo corto de texto para cada una de las 6 caras. Luego, diseñen un prompt para cada cara y usen la IA de imágenes para generar los conceptos visuales. Su entregable es un storyboard: un documento con el texto y la imagen para cada cara. Este es su plano de construcción."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card" id="activity-5">
+                <h2>⚡ Actividad 5: Gnius STORM ⏰ 5 minutos</h2>
+                <p>Moderar una fase de retroalimentación estructurada entre pares sobre los storyboards creados.</p>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 1: Think (Reflexión Individual) ⏰ 1 minuto</h3>
+                            <p>(Proyectar Diapositiva 8) El facilitador guía una breve reflexión individual sobre la efectividad del framework.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Tiempo. Reflexión individual. Miren su storyboard. ¿Cómo les ayudó el framework de Tres Actos a organizar sus ideas? ¿Qué cara o escena creen que es la más fuerte de su historia?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 2: Pair (Intercambio en Parejas) ⏰ 2 minutos</h3>
+                            <p>(Proyectar Diapositiva 9) En parejas, los estudiantes presentan sus storyboards.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"En parejas. Presenten su storyboard. Cuenten brevemente la historia, mostrando la imagen y leyendo el texto de cada cara. Expliquen cómo usaron el framework. El compañero escucha y prepara su feedback. Luego, intercambien roles."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 3: Share (Retroalimentación Estructurada) ⏰ 1 minuto</h3>
+                            <p>(Proyectar Diapositiva 10) El facilitador provee una estructura para el feedback narrativo.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Para dar feedback, usen esta estructura: <strong>1. 'La parte más interesante de tu historia es...' 2. 'La imagen que mejor captura la atmósfera es la de la cara...' 3. 'Una pregunta que tengo sobre el conflicto es...'</strong>"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-content">
+                            <h3>Paso 4: Síntesis y Cierre ⏰ 1 minuto</h3>
+                            <p>(Proyectar Diapositiva 11) El facilitador concluye la sesión, consolidando el rol del desarrollador como director de IAs.</p>
+                        </div>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
+                            <div class="collapsible-content">
+                                <p class="dialogue assistant">"Han aprendido que una herramienta tecnológica es tan poderosa como la historia que cuenta. Hoy han actuado como guionistas y directores, usando la IA como su equipo de producción creativa. En la próxima sesión, tomaremos estos planos y daremos vida a su Cubo AR interactivo. Prepárense para programar."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
