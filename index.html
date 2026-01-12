@@ -3,32 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playbook Misión 8 : Contando Historias con Realidad Aumentada</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Playbook-S2-TM8</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --teacher-color: #10b981;
+            --xolo-color: #6366f1;
+            --student-color: #f43f5e;
+            --timer-bg: #e2e8f0;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 1.5rem; }
+        .header-widgets { display: flex; align-items: center; gap: 20px; }
+        .timer-container { background: var(--timer-bg); padding: 8px 15px; border-radius: 20px; color: var(--text-color); font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .timer-container button { background: var(--primary-color); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .main-container { display: flex; min-height: calc(100vh - 80px); }
+        aside.activity-list { width: 80px; background: #f1f5f9; border-right: 1px solid #e2e8f0; padding: 20px 0; display: flex; flex-direction: column; align-items: center; }
+        aside.activity-list ul { list-style: none; padding: 0; margin: 0; width: 100%; }
+        aside.activity-list li { margin-bottom: 15px; text-align: center; }
+        aside.activity-list a { text-decoration: none; color: var(--text-color); font-weight: bold; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: white; border: 2px solid #cbd5e1; transition: all 0.3s; }
+        aside.activity-list a:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+        main.content { flex: 1; padding: 40px; max-width: 1000px; margin: 0 auto; }
+        .activity-card { background: var(--card-bg); border-radius: 15px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-color); }
+        .activity-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .activity-timer { display: flex; align-items: center; gap: 10px; background: #fef3c7; padding: 5px 12px; border-radius: 15px; font-weight: bold; }
+        .roles-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .role-card { padding: 20px; border-radius: 10px; border-top: 4px solid; }
+        .role-teacher { background: #ecfdf5; border-color: var(--teacher-color); }
+        .role-xolo { background: #eef2ff; border-color: var(--xolo-color); }
+        .role-student { background: #fff1f2; border-color: var(--student-color); }
+        .role-card h4 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
+        .objective-box { background: #eff6ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--primary-color); }
+        .prompt-box { background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 10px; position: relative; margin: 15px 0; }
+        .prompt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.85rem; color: #94a3b8; }
+        .copy-btn { background: #475569; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        pre { white-space: pre-wrap; word-wrap: break-word; margin: 0; font-family: monospace; }
+        .essentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .essential-card { background: #f8fafc; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #e2e8f0; }
+        .essential-icon { font-size: 2rem; margin-bottom: 10px; }
+        .materials-checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; background: #f1f5f9; padding: 20px; border-radius: 10px; }
+        .materials-checklist label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .timeline { margin: 20px 0; position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #cbd5e1; }
+        .timeline-item { position: relative; margin-bottom: 20px; }
+        .timeline-dot { position: absolute; left: -25px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); border: 2px solid white; }
+        .time-badge { background: #e2e8f0; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; }
+        .slide-reference { margin-top: 20px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+        .slide-reference h4 { background: #f1f5f9; margin: 0; padding: 10px 15px; border-bottom: 1px solid #e2e8f0; }
+        .slide-content { padding: 20px; background: white; }
+        .highlight-text { font-weight: bold; color: var(--primary-color); }
+        .collapsible-button { background: #f1f5f9; border: none; width: 100%; text-align: left; padding: 10px 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; }
+        .collapsible-content { display: none; padding: 15px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+        .dialogue { font-style: italic; color: #475569; }
+        .troubleshooting-list { background: #fff7ed; padding: 20px; border-radius: 10px; border: 1px solid #ffedd5; }
+        .troubleshooting-list ul { margin: 0; padding-left: 20px; }
+        .challenge-prompt { background: #f0fdf4; border: 1px solid #dcfce7; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .tps-structure { display: flex; flex-direction: column; gap: 15px; }
+        .tps-phase { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
+    </style>
 </head>
 <body>
-
     <header>
-        <h1><span class="book-icon">📋</span> <strong>Playbook Misión 8 : Contando Historias con Realidad Aumentada</strong></h1>
+        <h1><span class="book-icon">📋</span> <strong>Playbook: Misión 8 - 2do Secundaria</strong></h1>
         <div class="header-widgets">
             <div class="timer-container">
-                <span id="timer">⏱️ 00:00</span>
-                <button id="startStop">Start</button>
-                <button id="reset">Reset</button>
-            </div>
-            <div class="theme-toggle">
-                <i class="fas fa-sun"></i>
-                <label class="switch">
-                    <input type="checkbox" id="theme-toggle-input">
-                    <span class="slider round"></span>
-                </label>
-                <i class="fas fa-moon"></i>
+                <span id="global-timer">⏱️ 40:00</span>
+                <button id="global-start-stop">Start</button>
+                <button id="global-reset">Reset</button>
             </div>
         </div>
     </header>
-
     <div class="main-container">
         <aside class="activity-list">
             <h2>Actividades</h2>
@@ -40,250 +92,447 @@
                 <li><a href="#activity-4">4</a></li>
                 <li><a href="#activity-5">5</a></li>
             </ul>
-
-            <div class="sidebar-info">
-                <p>💡 Cada actividad está cuidadosamente diseñada para involucrar a los estudiantes.</p>
-                <p>⏱️ Se proporcionan estimaciones de tiempo para cada actividad para ayudarle a mantener el rumbo.</p>
-            </div>
         </aside>
-
         <main class="content">
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-
-            <button id="toggle-dialogues">Mostrar todos los diálogos</button>
-
+            <!-- ACTIVIDAD 0: DE UN VISTAZO -->
             <div class="activity-card" id="activity-0">
-                <h2><span class="book-icon">📝</span> De un Vistazo: Misión Gnius</h2>
-                <p class="overview-subtitle">Resumen rápido de objetivos, materiales y preparación para el facilitador.</p>
-                <div class="overview-table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 50%;">Objetivos, Tácticas y Entregable</th>
-                                <th style="width: 50%;">Materiales Específicos y Preparación Previa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <strong>Objetivos:</strong>
-                                    <ul>
-                                        <li>Diseñar una narrativa interactiva simple para una experiencia de Realidad Aumentada.</li>
-                                        <li>Utilizar un LLM (Xolo) como colaborador creativo guiado por un framework de storytelling.</li>
-                                        <li>Generar un guion y conceptos visuales para un Cubo AR interactivo.</li>
-                                    </ul>
-                                    <strong>Secuencia de Clase:</strong>
-                                    <ul>
-                                        <li><strong class="tactic-highlight">⚡Saludo Interactivo con IA:</strong> Contextualización de la AR como medio narrativo.</li>
-                                        <li><strong class="tactic-highlight">⚡"I Can Statement" + Presentación del Desafío:</strong> Introducción al diseño narrativo estructurado.</li>
-                                        <li><strong class="tactic-highlight">⚡AI GYM:</strong> Adquisición conceptual del framework de Storytelling Interactivo de Tres Actos.</li>
-                                        <li><strong class="tactic-highlight">⚡Brain Spark:</strong> Aplicación práctica del framework para crear un storyboard (guion + visuales) con IA.</li>
-                                        <li><strong class="tactic-highlight">⚡Gnius STORM:</strong> Retroalimentación estructurada entre pares sobre los storyboards.</li>
-                                    </ul>
-                                    <strong>Entregable Clave:</strong>
-                                    <ul>
-                                        <li>Un "storyboard" (documento digital o físico) para una experiencia de 6 caras en el Merge Cube. Debe incluir el texto para cada cara (generado por LLM) y una imagen conceptual para cada cara (generada por IA de imagen).</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <strong>Materiales Específicos:</strong>
-                                    <ul>
-                                        <li>Proyector o pantalla interactiva.</li>
-                                        <li>Conexión a internet estable.</li>
-                                        <li>Acceso a un LLM para escritura creativa (ej. ChatGPT, Claude).</li>
-                                        <li>Acceso a una herramienta de IA generativa de imágenes (ej. KREA.ai).</li>
-                                        <li>Chat "Agente Gnius" (Xolo) activo y funcionando.</li>
-                                        <li>Presentación de diapositivas (Diapositivas 1-11).</li>
-                                    </ul>
-                                    <strong>Preparación Previa para ESTA Sesión:</strong>
-                                    <ol>
-                                        <li><strong>Revisión de Misión (Interna):</strong>
-                                            <ul>
-                                                <li>Verificar el acceso de los estudiantes al LLM y a la herramienta de imágenes IA designadas.</li>
-                                                <li>Tener una plantilla de storyboard simple preparada (opcional, puede ser un documento en blanco).</li>
-                                                <li>Tener la presentación de diapositivas lista.</li>
-                                            </ul>
-                                        </li>
-                                        <li><strong>Familiarización:</strong> Internalizar el framework de Tres Actos adaptado a las 6 caras del cubo para poder guiar a los estudiantes de manera efectiva.</li>
-                                    </ol>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <h2><span class="book-icon">📝</span> De un Vistazo: Comando Central</h2>
+                <p class="overview-subtitle">Todo lo que necesitas para preparar y ejecutar esta misión en minutos.</p>
+                
+                <div class="command-section">
+                    <h3>🎯 Objetivo de Aprendizaje</h3>
+                    <div class="objective-box">
+                        <p><strong>Los estudiantes podrán:</strong> usar Delightex para diseñar narrativas interactivas en AR integrando texto e imágenes para crear historias coherentes y comprender el storytelling interactivo y el uso de LLMs para la creatividad guiada.</p>
+                    </div>
+                </div>
+                <div class="command-section xolo-prompt">
+                    <h3>🤖 Prompt de Referencia para XOLO (Solo para Maestro)</h3>
+                    <div class="prompt-box">
+                        <div class="prompt-header">
+                            <span class="prompt-label">⚠️ NOTA: XOLO ya conoce el tema de esta misión. Este prompt es SOLO de referencia en caso de emergencia técnica:</span>
+                            <button class="copy-btn" onclick="copyPrompt('main-prompt')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <pre id="main-prompt">Explícame cómo funciona el storytelling interactivo y por qué contar historias en AR es diferente a hacerlo en texto o video. Guíame para comprender un framework simple de narrativa (inicio, desarrollo y cierre) adaptado a la interacción del usuario. Luego analicemos cómo un LLM puede ayudar a generar fragmentos de historia y cómo una IA de imagen puede apoyar los visuales, siempre siguiendo una estructura definida por el diseñador.</pre>
+                    </div>
+                </div>
+                <div class="command-section">
+                    <h3>⚡ Puntos Esenciales de la Misión</h3>
+                    <div class="essentials-grid">
+                        <div class="essential-card">
+                            <div class="essential-icon">🎓</div>
+                            <h4>Concepto Clave</h4>
+                            <p>Storytelling interactivo: Es contar historias donde el espectador no solo mira, sino que decide qué pasa o cómo descubre la trama, como en un videojuego pero aplicado a la Realidad Aumentada.</p>
+                        </div>
+                        <div class="essential-card">
+                            <div class="essential-icon">🔧</div>
+                            <h4>Habilidad Técnica</h4>
+                            <p>Usar Delightex para crear una historia que cambie cuando el usuario interactúa con ella.</p>
+                        </div>
+                        <div class="essential-card">
+                            <div class="essential-icon">🧪</div>
+                            <h4>Experimentación</h4>
+                            <p>Probar con diferentes estructuras narrativas y tipos de interacción para entender limitaciones.</p>
+                        </div>
+                        <div class="essential-card">
+                            <div class="essential-icon">💬</div>
+                            <h4>Interacción con XOLO</h4>
+                            <p>XOLO ya conoce a cada estudiante y el tema de hoy. Solo abren el chat y comienzan a aprender. Tú guías el timing y motivación.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-section">
+                    <h3>📦 Checklist de Materiales</h3>
+                    <div class="materials-checklist">
+                        <label><input type="checkbox"> Proyector/pantalla + presentación (5 diapositivas)</label>
+                        <label><input type="checkbox"> Internet estable + Gnius Space con XOLO activo</label>
+                        <label><input type="checkbox"> Merge Cube (1 por cada 2 estudiantes)</label>
+                        <label><input type="checkbox"> Acceso a Delightex (https://edu.delightex.com/Auth)</label>
+                        <label><input type="checkbox"> Hojas de papel y lápiz para bocetar la historia</label>
+                        <label><input type="checkbox"> ⚠️ Esta misión usa diseño de escenas y narrativa interactiva en Delightex</label>
+                        <label><input type="checkbox"> 📋 Para usar Delightex: Ingresa al link, inicia sesión y abre una nueva Studio Session</label>
+                    </div>
+                    <p class="care-reminder"><strong>🛡️ Cuidado del equipo:</strong> No aplica hardware físico pesado, pero mantén tu computadora cargada y trata el Merge Cube (si se usa) con cuidado, sin doblarlo.</p>
+                </div>
+                <div class="command-section">
+                    <h3>🗓️ Secuencia de la Misión (40 min)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot">1</div>
+                            <div class="timeline-content">
+                                <strong>Intro a la Misión</strong>
+                                <span class="time-badge">2 min</span>
+                                <p>Bienvenida, I Can Statement y contexto de la misión.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">2</div>
+                            <div class="timeline-content">
+                                <strong>A.I. Gym</strong>
+                                <span class="time-badge">8 min</span>
+                                <p>Los estudiantes abren el chat con XOLO y aprenden sobre storytelling interactivo y frameworks narrativos (sin prompt específico).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">3</div>
+                            <div class="timeline-content">
+                                <strong>Brain Spark</strong>
+                                <span class="time-badge">20 min</span>
+                                <p>Idear, construir y experimentar un programa con XOLO.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">4</div>
+                            <div class="timeline-content">
+                                <strong>Gnius STORM - Compartir</strong>
+                                <span class="time-badge">5 min</span>
+                                <p>Demostración y reflexión en parejas.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">5</div>
+                            <div class="timeline-content">
+                                <strong>Entrega de Evidencias</strong>
+                                <span class="time-badge">5 min</span>
+                                <p>Subir capturas a Gnius Space y finalizar misión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-section">
+                    <h3>🚨 Resolución Rápida de Problemas</h3>
+                    <div class="troubleshooting-list">
+                        <ul>
+                            <li><strong>Si los alumnos no pueden ingresar a Gnius Space:</strong> Activa XOLO SOS en <a href="https://xolo.gnius.club" target="_blank">xolo.gnius.club</a> para continuar la misión sin interrumpir la clase.</li>
+                            <li><strong>Si Delightex no carga:</strong> Refrescar la página o verificar la conexión a internet. Asegurarse de estar usando un navegador compatible (Chrome recomendado).</li>
+                            <li><strong>Si los visuales no aparecen en el Merge Cube:</strong> Verificar que la cámara tenga permisos y que el cubo esté bien iluminado y centrado en la pantalla.</li>
+                            <li><strong>Si hay errores en el código:</strong> Recordar a los estudiantes que XOLO puede ayudar a depurar. Pídeles que copien el error y se lo muestren a XOLO.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
+            <!-- ACTIVIDAD 1: INTRO A LA MISIÓN -->
             <div class="activity-card" id="activity-1">
-                <h2>⚡ Actividad 1: Saludo de I.A. y Contexto de Misión ⏰ 3 minutos</h2>
-                <p>Establecer un ambiente de trabajo profesional, contextualizar la misión del día y guiar la activación individualizada de Xolo, el copiloto de IA.</p>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 1: Bienvenida y Contexto ⏰ 1 minuto</h3>
-                            <p>(Proyectar Diapositiva 2) El facilitador da la bienvenida y presenta la misión: convertir la AR en un medio para contar historias.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Desarrolladores. Ya pueden anclar objetos digitales en la realidad. Pero un objeto sin historia es solo un adorno. Hoy, se convertirán en narradores. Aprenderán a usar la Realidad Aumentada no solo para mostrar, sino para contar. Su misión es diseñar una historia que se desarrolle en las caras del Merge Cube. Cada cara, una escena; cada giro, un nuevo capítulo."</p>
-                            </div>
-                        </div>
+                <div class="activity-header">
+                    <h2>🚀 Actividad 1: Intro a la Misión</h2>
+                    <div class="activity-timer">
+                        <span class="activity-duration">⏱️ 2:00</span>
                     </div>
-                      <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 2: Activación de IA y Perfil ⏰ 2 minutos</h3>
-                            <p>El facilitador da la instrucción explícita a los alumnos para que saluden a Xolo en el chat.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Inicien su sesión. Abran el chat y envíen su saludo de activación a Xolo, incluyendo su perfil e intereses para la Misión 8."</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="roles-section">
+                    <div class="role-card role-teacher">
+                        <h4>👨‍🏫 Rol del Maestro</h4>
+                        <ul>
+                            <li>Dar la bienvenida con energía.</li>
+                            <li>Pedir a los alumnos que ingresen a Gnius Space.</li>
+                            <li>Proyecta diapositiva 1 con el I Can Statement.</li>
+                            <li>Motiva: "Hoy le daremos vida a sus historias usando Realidad Aumentada e IA.".</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-xolo">
+                        <h4>🤖 Rol de XOLO</h4>
+                        <ul>
+                            <li>XOLO ya está listo y conoce a cada estudiante.</li>
+                            <li>Sabe que hoy toca aprender sobre Storytelling interactivo y narrativa con IA.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-student">
+                        <h4>👦 Rol del Alumno</h4>
+                        <ul>
+                            <li>Escucha la misión del día.</li>
+                            <li>Loguearse en Gnius Space.</li>
+                            <li>Preparación para trabajar en parejas.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-reference">
+                    <h4>📊 Diapositiva 1: I Can Statement</h4>
+                    <div class="slide-content">
+                        <p><strong>🎯 Hoy seré capaz de:</strong></p>
+                        <p class="highlight-text">🤖 A diseñar historias interactivas en AR para que el usuario sea el protagonista.</p>
+                        <p><strong>Aplicación real:</strong> Los diseñadores de videojuegos y experiencias inmersivas en museos usan esta tecnología para crear recorridos donde la historia depende de lo que el visitante toque o mire.</p>
+                        <p><strong>Tu aliado:</strong> XOLO ya sabe qué vas a aprender hoy. ¡Solo abre el chat y comienza!</p>
                     </div>
                 </div>
             </div>
-
+            <!-- ACTIVIDAD 2: A.I. GYM -->
             <div class="activity-card" id="activity-2">
-                <h2>⚡ Actividad 2: "I Can Statement" y Presentación del Desafío ⏰ 7 minutos</h2>
-                <p>Clarificar las metas de aprendizaje y presentar el diseño narrativo como una habilidad fundamental.</p>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 1: El Desafío del Día ⏰ 4 minutos</h3>
-                            <p>(Proyectar Diapositiva 3) El facilitador introduce la necesidad de una estructura narrativa (framework) para guiar la creación.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Esta es una sesión de 'Studio' centrada en el diseño narrativo. Una buena experiencia interactiva necesita una estructura. No podemos simplemente poner texto e imágenes al azar. Hoy aprenderán a usar un framework de storytelling simple para planificar su historia y luego dirigirán a una IA para que les ayude a escribirla y visualizarla. El objetivo es crear un guion y un plan visual para su Cubo AR interactivo."</p>
-                            </div>
-                        </div>
+                <div class="activity-header">
+                    <h2>🧠 Actividad 2: A.I. Gym</h2>
+                    <div class="activity-timer">
+                        <span class="activity-duration">⏱️ 8:00</span>
                     </div>
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 2: Objetivo de Aprendizaje (I Can Statement) ⏰ 3 minutos</h3>
-                            <p>(Proyectar Diapositiva 4) El facilitador presenta el objetivo de aprendizaje concreto de la sesión.</p>
+                </div>
+                <div class="roles-section">
+                    <div class="role-card role-teacher">
+                        <h4>👨‍🏫 Rol del Maestro</h4>
+                        <ul>
+                            <li>Proyecta diapositiva 2.</li>
+                            <li>Indica: "Abran el chat con XOLO y salúdenlo. Él ya sabe qué les va a enseñar hoy."</li>
+                            <li>Circula para asegurar que todos interactúan con XOLO.</li>
+                            <li>Si alguien tiene dudas, recuérdale: "Pregúntale a XOLO, él te puede explicar de otra forma".</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-xolo">
+                        <h4>🤖 Rol de XOLO</h4>
+                        <p class="xolo-status">✅ XOLO ACTIVO</p>
+                        <ul>
+                            <li>Reconoce al estudiante y sus preferencias de aprendizaje.</li>
+                            <li>Explica cómo funciona el storytelling interactivo y por qué la AR es diferente al texto.</li>
+                            <li>Introduce el concepto de framework narrativo (inicio, desarrollo y cierre) aplicado a la IA.</li>
+                            <li>Responde dudas sobre los conceptos.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-student">
+                        <h4>👦 Rol del Alumno</h4>
+                        <ul>
+                            <li>Abrir el chat con XOLO y saludarlo.</li>
+                            <li>Aprender a usar Delightex para crear flujos narrativos.</li>
+                            <li>Aprender sobre cómo la IA apoya la creatividad sin quitar el control al diseñador.</li>
+                            <li>Despejar todas sus dudas preguntando a XOLO.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-reference">
+                    <h4>📊 Diapositiva 2: A.I. GYM</h4>
+                    <div class="slide-content">
+                        <p><strong>💬 Abre el chat con XOLO y salúdalo:</strong></p>
+                        <div class="prompt-box">
+                            <pre>"¡Hola XOLO! Estoy listo para aprender."</pre>
                         </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Al finalizar esta sesión, podrán afirmar: <strong>'Yo puedo diseñar una narrativa interactiva simple usando un framework de storytelling y dirigir a un LLM para co-escribir y conceptualizar visualmente la historia.'</strong>"</p>
-                            </div>
-                        </div>
+                        <p class="highlight-text" style="margin-top: 1rem;">✨ XOLO ya sabe quién eres y qué tema toca hoy. ¡Solo empieza a conversar!</p>
+                        <p class="highlight-text">🎯 Objetivo: Aprender a usar Delightex para crear narrativas y entender el storytelling interactivo.</p>
+                    </div>
+                </div>
+                
+                <div class="optional-script">
+                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <div class="collapsible-content">
+                        <p class="dialogue assistant">¡Hola a todos! Ahora vamos a aprender algo increíble. Abran el chat con XOLO y salúdenlo. XOLO ya los conoce y sabe exactamente qué les va a enseñar hoy. No necesitan escribir un prompt especial, solo empiecen a platicar con él. Hoy exploraremos el storytelling interactivo. Descubrirán por qué contar historias en Realidad Aumentada es una experiencia totalmente distinta a leer un libro o ver un video. XOLO les explicará cómo estructurar una historia y cómo la IA puede ser su mejor aliada para generar ideas y visuales. ¡Pregúntenle todo lo que necesiten!</p>
                     </div>
                 </div>
             </div>
-
+            <!-- ACTIVIDAD 3: BRAIN SPARK -->
             <div class="activity-card" id="activity-3">
-                <h2>⚡ Actividad 3: A.I. GYM ⏰ 10 minutos</h2>
-                <p>Guiar a los estudiantes para que comprendan el framework de storytelling y cómo usarlo para dirigir a las IAs creativas.</p>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 1: Diálogo Conceptual con Xolo ⏰ 10 minutos</h3>
-                            <p>(Proyectar Diapositiva 5) El facilitador instruye a los estudiantes sobre cómo iniciar su diálogo con Xolo para aprender el workflow narrativo.</p>
+                <div class="activity-header">
+                    <h2>💡 Actividad 3: Brain Spark</h2>
+                    <div class="activity-timer">
+                        <span class="activity-duration">⏱️ 20:00</span>
+                    </div>
+                </div>
+                <div class="roles-section">
+                    <div class="role-card role-teacher">
+                        <h4>👨‍🏫 Rol del Maestro</h4>
+                        <ul>
+                            <li>Proyecta la diapositiva 3.</li>
+                            <li>Indica: "Pidan a XOLO que los ayude a idear un proyecto. Cuando tengan su GCS, pásenlo a bloques en MakeCode, prueben en el simulador y luego con el hardware real".</li>
+                            <li>Entrega por parejas los Merge Cubes conforme los alumnos prueben su GCS en el simulador.</li>
+                            <li>Si hay errores, recuerda: "Pregúntenle a XOLO, él los ayuda a depurar".</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-xolo">
+                        <h4>🤖 Rol de XOLO</h4>
+                        <p class="xolo-status">✅ XOLO ACTIVO</p>
+                        <ul>
+                            <li>Ayuda a desarrollar una idea y un VIBE que aplique narrativa interactiva en AR.</li>
+                            <li>Entrega el GCS de la idea del genio.</li>
+                            <li>Resuelve errores de sintaxis o lógica.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-student">
+                        <h4>👦 Rol del Alumno</h4>
+                        <ul>
+                            <li>Trabajar con XOLO una idea y un VIBE para usar el Merge Cube en una historia interactiva.</li>
+                            <li>Traducir el GCS de XOLO a bloques en MakeCode.</li>
+                            <li>Depurar su programa con XOLO si hay errores.</li>
+                            <li>Configurar la escena en Delightex y probar la interacción.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-reference">
+                    <h4>📊 Diapositiva 3: Brain Spark</h4>
+                    <div class="slide-content">
+                        <p><strong>1. 💬 Pide a XOLO que te ayude a crear:</strong></p>
+                        <div class="prompt-box">
+                            <pre>"Ayúdame a idear una historia interactiva para el Merge Cube en Delightex. Dame una vibe narrativa (ej. “mitología”, “aventura científica”, “historia misteriosa”) y guíame para definir los tres actos de la historia y qué ocurre en cada uno al interactuar con el cubo. Después indícame cómo usar fragmentos de texto generados por IA y visuales para construir la narrativa AR de forma coherente y atractiva."</pre>
                         </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Entramos al A.I. GYM. Para estructurar su creatividad, necesitan un plan. Inicien un diálogo con Xolo: <strong>'Xolo, explícame el framework de Storytelling Interactivo de Tres Actos para el Merge Cube y cómo puedo usarlo para dirigir a un LLM y a una IA de imágenes.'</strong> Él les presentará la estructura y les explicará cómo usarla para dar instrucciones precisas a sus colaboradores de IA."</p>
-                            </div>
-                        </div>
+                        <p style="margin-top: 1.5rem;"><strong>2. 🔬 Experimenta y descubre con tu programa:</strong></p>
+                        <ul>
+                            <li>¿La historia fluye correctamente desde el inicio hasta el cierre?</li>
+                            <li>¿Qué pasa si el usuario interactúa con el cubo en un orden diferente al planeado?</li>
+                            <li>¿Funciona igual la narrativa con mucho texto vs. con más apoyos visuales?</li>
+                            <li>¿Cómo ayuda el framework narrativo a que la IA genere contenido coherente con tu idea?</li>
+                            <li>¿Por qué es importante que tú, como diseñador, definas la intención antes de usar la IA?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="optional-script">
+                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <div class="collapsible-content">
+                        <p class="dialogue assistant">¡Es hora de crear! Vamos a pasar de la teoría a la acción. Usen el prompt que ven en pantalla para que XOLO los ayude a idear una historia fascinante para su Merge Cube. El flujo es simple: primero ideen con XOLO, definan el 'VIBE' y los tres actos, luego lleven eso a Delightex. Por ejemplo, podrían crear una aventura científica donde el cubo es un artefacto alienígena que revela secretos al girarlo. No olviden usar las preguntas de experimentación para pulir su proyecto. Si tienen errores o dudas al configurar su escena, pregúntenle a XOLO, él los ayudará a depurar. ¡Hagamos que estas historias cobren vida!</p>
+                    </div>
+                </div>
+                <div class="challenge-prompt">
+                    <h4>🚀 Prompt de Desafío (para quienes terminen rápido)</h4>
+                    <div class="prompt-box">
+                        <p><strong>Si ya experimentaste con todo, pregunta a XOLO:</strong></p>
+                        <p class="challenge-text">"Ya probé con una historia lineal. ¿Puedes enseñarme cómo hacer que mi historia tenga dos finales diferentes dependiendo de la interacción del usuario?"</p>
                     </div>
                 </div>
             </div>
-
+            <!-- ACTIVIDAD 4: GNIUS STORM - COMPARTIR -->
             <div class="activity-card" id="activity-4">
-                 <h2>⚡ Actividad 4: Brain Spark ⏰ 15 minutos</h2>
-                <p>Supervisar el workflow de crear un guion y un storyboard completos usando el framework y las IAs.</p>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 1: El Guion del Cubo AR ⏰ 5 minutos</h3>
-                            <p>(Proyectar Diapositiva 6) Los equipos eligen un género y usan el framework de Xolo para diseñar la estructura de su historia.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Ahora, al Brain Spark. En equipos, elijan un género: ciencia ficción, fantasía, misterio. Piensen en una historia simple con un personaje, un objetivo y un obstáculo. Usando el framework de Tres Actos, definan qué sucede en cada par de caras del cubo. Luego, describan esta estructura a Xolo y pídanle que les ayude a detallar cada escena."</p>
-                            </div>
-                        </div>
+                <div class="activity-header">
+                    <h2>⚡ Actividad 4: Gnius STORM - Compartir y Reflexionar</h2>
+                    <div class="activity-timer">
+                        <span class="activity-duration">⏱️ 5:00</span>
                     </div>
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 2: Creación del Storyboard ⏰ 10 minutos</h3>
-                            <p>(Proyectar Diapositiva 7) Los equipos usan las IAs para generar el contenido del storyboard.</p>
+                </div>
+                <div class="roles-section">
+                    <div class="role-card role-teacher">
+                        <h4>👨‍🏫 Rol del Maestro</h4>
+                        <ul>
+                            <li>Organiza las parejas para compartir.</li>
+                            <li>Gestiona los tiempos: 2 min demo + 2 min reflexión + 1 min cierre.</li>
+                            <li>Facilita retroalimentación constructiva.</li>
+                            <li>Cierra con reflexión sobre aplicaciones reales.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-xolo">
+                        <h4>🤖 Rol de XOLO</h4>
+                        <p class="xolo-status">⏸️ XOLO EN ESPERA</p>
+                        <ul>
+                            <li>Disponible solo si hay dudas finales urgentes.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card role-student">
+                        <h4>👦 Rol del Alumno</h4>
+                        <ul>
+                            <li>Demuestra su programa funcionando a otra pareja.</li>
+                            <li>Explica qué elementos narrativos e interactivos funcionan bien en su escena de AR.</li>
+                            <li>Comparte un descubrimiento interesante.</li>
+                            <li>Da retroalimentación positiva al compañero.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-reference">
+                    <h4>📊 Diapositiva 4: Think-Pair-Share</h4>
+                    <div class="slide-content tps-structure">
+                        <div class="tps-phase">
+                            <h4>🤔 THINK (30 seg)</h4>
+                            <p>Reflexión individual: ¿Qué momentos de tu historia funcionaron mejor con la interacción del cubo? ¿Qué te sorprendió de la IA?</p>
                         </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                 <p class="dialogue assistant">"Con la estructura clara, dirijan a sus IAs. Pídanle a un LLM que escriba un párrafo corto de texto para cada una de las 6 caras. Luego, diseñen un prompt para cada cara y usen la IA de imágenes para generar los conceptos visuales. Su entregable es un storyboard: un documento con el texto y la imagen para cada cara. Este es su plano de construcción."</p>
-                            </div>
+                        <div class="tps-phase">
+                            <h4>👥 PAIR (2 min)</h4>
+                            <p>Con otra pareja: Demuestren su programa y expliquen su experiencia</p>
+                            <p class="highlight-text">Frase guía: "Mi historia interactiva usa el cubo para revelar el clímax. Me sorprendió que la IA sugiriera diálogos tan acordes al VIBE."</p>
+                        </div>
+                        <div class="tps-phase">
+                            <h4>💬 SHARE (2 min)</h4>
+                            <p>Retroalimentación mutua y cierre del maestro.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <!-- ACTIVIDAD 5: ENTREGA DE EVIDENCIAS -->
             <div class="activity-card" id="activity-5">
-                <h2>⚡ Actividad 5: Gnius STORM ⏰ 5 minutos</h2>
-                <p>Moderar una fase de retroalimentación estructurada entre pares sobre los storyboards creados.</p>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 1: Think (Reflexión Individual) ⏰ 1 minuto</h3>
-                            <p>(Proyectar Diapositiva 8) El facilitador guía una breve reflexión individual sobre la efectividad del framework.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Tiempo. Reflexión individual. Miren su storyboard. ¿Cómo les ayudó el framework de Tres Actos a organizar sus ideas? ¿Qué cara o escena creen que es la más fuerte de su historia?"</p>
-                            </div>
-                        </div>
+                <div class="activity-header">
+                    <h2>✅ Actividad 5: Entrega de Evidencias</h2>
+                    <div class="activity-timer">
+                        <span class="activity-duration">⏱️ 5:00</span>
                     </div>
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 2: Pair (Intercambio en Parejas) ⏰ 2 minutos</h3>
-                            <p>(Proyectar Diapositiva 9) En parejas, los estudiantes presentan sus storyboards.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"En parejas. Presenten su storyboard. Cuenten brevemente la historia, mostrando la imagen y leyendo el texto de cada cara. Expliquen cómo usaron el framework. El compañero escucha y prepara su feedback. Luego, intercambien roles."</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="roles-section">
+                    <div class="role-card role-teacher">
+                        <h4>👨‍🏫 Rol del Maestro</h4>
+                        <ul>
+                            <li>Proyecta diapositiva 5 con las instrucciones.</li>
+                            <li>Guía a los estudiantes para tomar las capturas.</li>
+                            <li>Asegura que todos suban sus evidencias a Gnius Space.</li>
+                            <li>Felicita al grupo por completar la misión.</li>
+                        </ul>
                     </div>
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 3: Share (Retroalimentación Estructurada) ⏰ 1 minuto</h3>
-                            <p>(Proyectar Diapositiva 10) El facilitador provee una estructura para el feedback narrativo.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Para dar feedback, usen esta estructura: <strong>1. 'La parte más interesante de tu historia es...' 2. 'La imagen que mejor captura la atmósfera es la de la cara...' 3. 'Una pregunta que tengo sobre el conflicto es...'</strong>"</p>
-                            </div>
-                        </div>
+                    <div class="role-card role-xolo">
+                        <h4>🤖 Rol de XOLO</h4>
+                        <p class="xolo-status">⭕ XOLO FINALIZADO</p>
+                        <ul>
+                            <li>La interacción con XOLO ha terminado para esta misión.</li>
+                        </ul>
                     </div>
-                    <div class="step-card">
-                        <div class="step-content">
-                            <h3>Paso 4: Síntesis y Cierre ⏰ 1 minuto</h3>
-                            <p>(Proyectar Diapositiva 11) El facilitador concluye la sesión, consolidando el rol del desarrollador como director de IAs.</p>
-                        </div>
-                        <div class="collapsible">
-                            <button type="button" class="collapsible-button">Diálogo Sugerido</button>
-                            <div class="collapsible-content">
-                                <p class="dialogue assistant">"Han aprendido que una herramienta tecnológica es tan poderosa como la historia que cuenta. Hoy han actuado como guionistas y directores, usando la IA como su equipo de producción creativa. En la próxima sesión, tomaremos estos planos y daremos vida a su Cubo AR interactivo. Prepárense para programar."</p>
-                            </div>
-                        </div>
+                    <div class="role-card role-student">
+                        <h4>👦 Rol del Alumno</h4>
+                        <ul>
+                            <li>Tomar screenshot de su código en MakeCode.</li>
+                            <li>Tomar screenshot de su conversación con XOLO.</li>
+                            <li>Subir ambas evidencias a Gnius Space.</li>
+                            <li>Dar click en "Finalizar Misión".</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slide-reference">
+                    <h4>📊 Diapositiva 5: ¡Misión Cumplida!</h4>
+                    <div class="slide-content">
+                        <p><strong>📸 Para terminar, sube tus evidencias a Gnius Space:</strong></p>
+                        <ol>
+                            <li>Una captura de pantalla de tu programa final en <strong>MakeCode</strong>.</li>
+                            <li>Una captura de pantalla de tu conversación con <strong>XOLO</strong> donde te dio tu GCS.</li>
+                        </ol>
+                        <p class="highlight-text" style="margin-top: 1rem;">¡No olvides dar click en el botón <strong>"Finalizar Misión"</strong> cuando termines!</p>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    <script>
+        // Basic timer functionality
+        let globalTimer = 40 * 60;
+        let timerInterval;
+        const timerDisplay = document.getElementById('global-timer');
+        const startStopBtn = document.getElementById('global-start-stop');
+        const resetBtn = document.getElementById('global-reset');
 
-    <script src="script.js"></script>
+        function updateDisplay() {
+            const mins = Math.floor(globalTimer / 60);
+            const secs = globalTimer % 60;
+            timerDisplay.textContent = `⏱️ ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        startStopBtn.addEventListener('click', () => {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                startStopBtn.textContent = 'Start';
+            } else {
+                timerInterval = setInterval(() => {
+                    if (globalTimer > 0) {
+                        globalTimer--;
+                        updateDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                    }
+                }, 1000);
+                startStopBtn.textContent = 'Stop';
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            globalTimer = 40 * 60;
+            updateDisplay();
+            startStopBtn.textContent = 'Start';
+        });
+
+        function copyPrompt(id) {
+            const text = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Prompt copiado al portapapeles');
+            });
+        }
+    </script>
 </body>
-</html>
+</html></html>
