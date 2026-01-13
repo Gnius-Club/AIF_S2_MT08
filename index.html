@@ -6,6 +6,7 @@
     <title>Playbook-S2-TM8</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -15,6 +16,14 @@
                 <span id="global-timer">⏱️ 40:00</span>
                 <button id="global-start-stop">Start</button>
                 <button id="global-reset">Reset</button>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-input">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
             </div>
         </div>
     </header>
@@ -42,7 +51,7 @@
                 <div class="command-section">
                     <h3>🎯 Objetivo de Aprendizaje</h3>
                     <div class="objective-box">
-                        <p><strong>Los estudiantes podrán:</strong> usar Delightex para diseñar narrativas interactivas en AR integrando texto e imágenes para crear historias coherentes y comprender el storytelling interactivo y el uso de LLMs para la creatividad guiada.</p>
+                        <p><strong>Los estudiantes podrán:</strong> comprender el storytelling interactivo y el uso de LLMs para la creatividad guiada, para usar Delightex diseñando narrativas interactivas en AR al integrar texto e imágenes para crear historias coherentes.</p>
                     </div>
                 </div>
                 <div class="command-section xolo-prompt">
@@ -119,7 +128,7 @@
                             <div class="timeline-content">
                                 <strong>Brain Spark</strong>
                                 <span class="time-badge">20 min</span>
-                                <p>Idear, construir y experimentar un programa con XOLO.</p>
+                                <p>Idear, construir y experimentar una historia interactiva en Delightex con apoyo de XOLO.</p>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -147,7 +156,7 @@
                             <li><strong>Si los alumnos no pueden ingresar a Gnius Space:</strong> Activa XOLO SOS en <a href="https://xolo.gnius.club" target="_blank">xolo.gnius.club</a> para continuar la misión sin interrumpir la clase.</li>
                             <li><strong>Si Delightex no carga:</strong> Refrescar la página o verificar la conexión a internet. Asegurarse de estar usando un navegador compatible (Chrome recomendado).</li>
                             <li><strong>Si los visuales no aparecen en el Merge Cube:</strong> Verificar que la cámara tenga permisos y que el cubo esté bien iluminado y centrado en la pantalla.</li>
-                            <li><strong>Si hay errores en el código:</strong> Recordar a los estudiantes que XOLO puede ayudar a depurar. Pídeles que copien el error y se lo muestren a XOLO.</li>
+                            <li><strong>Si hay dudas sobre la estructura narrativa:</strong> Recordar a los estudiantes que XOLO puede ayudar a explicar cómo organizar los tres actos de la historia.</li>
                         </ul>
                     </div>
                 </div>
@@ -158,6 +167,7 @@
                     <h2>🚀 Actividad 1: Intro a la Misión</h2>
                     <div class="activity-timer">
                         <span class="activity-duration">⏱️ 2:00</span>
+                        <button class="timer-start-btn" data-duration="120">Iniciar</button>
                     </div>
                 </div>
                 <div class="roles-section">
@@ -190,7 +200,7 @@
                     <h4>📊 Diapositiva 1: I Can Statement</h4>
                     <div class="slide-content">
                         <p><strong>🎯 Hoy seré capaz de:</strong></p>
-                        <p class="highlight-text">🤖 A diseñar historias interactivas en AR para que el usuario sea el protagonista.</p>
+                        <p class="highlight-text">🤖 Diseñar historias interactivas en AR para que mis usuarios sean los protagonistas.</p>
                         <p><strong>Aplicación real:</strong> Los diseñadores de videojuegos y experiencias inmersivas en museos usan esta tecnología para crear recorridos donde la historia depende de lo que el visitante toque o mire.</p>
                         <p><strong>Tu aliado:</strong> XOLO ya sabe qué vas a aprender hoy. ¡Solo abre el chat y comienza!</p>
                     </div>
@@ -202,6 +212,7 @@
                     <h2>🧠 Actividad 2: A.I. Gym</h2>
                     <div class="activity-timer">
                         <span class="activity-duration">⏱️ 8:00</span>
+                        <button class="timer-start-btn" data-duration="480">Iniciar</button>
                     </div>
                 </div>
                 <div class="roles-section">
@@ -247,7 +258,7 @@
                 </div>
                 
                 <div class="optional-script">
-                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <button class="collapsible-button">📖 Ver guion detallado (opcional)</button>
                     <div class="collapsible-content">
                         <p class="dialogue assistant">¡Hola a todos! Ahora vamos a aprender algo increíble. Abran el chat con XOLO y salúdenlo. XOLO ya los conoce y sabe exactamente qué les va a enseñar hoy. No necesitan escribir un prompt especial, solo empiecen a platicar con él. Hoy exploraremos el storytelling interactivo. Descubrirán por qué contar historias en Realidad Aumentada es una experiencia totalmente distinta a leer un libro o ver un video. XOLO les explicará cómo estructurar una historia y cómo la IA puede ser su mejor aliada para generar ideas y visuales. ¡Pregúntenle todo lo que necesiten!</p>
                     </div>
@@ -259,6 +270,7 @@
                     <h2>💡 Actividad 3: Brain Spark</h2>
                     <div class="activity-timer">
                         <span class="activity-duration">⏱️ 20:00</span>
+                        <button class="timer-start-btn" data-duration="1200">Iniciar</button>
                     </div>
                 </div>
                 <div class="roles-section">
@@ -266,9 +278,9 @@
                         <h4>👨‍🏫 Rol del Maestro</h4>
                         <ul>
                             <li>Proyecta la diapositiva 3.</li>
-                            <li>Indica: "Pidan a XOLO que los ayude a idear un proyecto. Cuando tengan su GCS, pásenlo a bloques en MakeCode, prueben en el simulador y luego con el hardware real".</li>
-                            <li>Entrega por parejas los Merge Cubes conforme los alumnos prueben su GCS en el simulador.</li>
-                            <li>Si hay errores, recuerda: "Pregúntenle a XOLO, él los ayuda a depurar".</li>
+                            <li>Indica: "Pidan a XOLO que los ayude a idear una historia interactiva. Cuando tengan su plan narrativo, configuren la escena en Delightex y prueben con el Merge Cube".</li>
+                            <li>Entrega por parejas los Merge Cubes conforme los alumnos tengan lista su escena en Delightex.</li>
+                            <li>Si hay dudas, recuerda: "Pregúntenle a XOLO, él los ayuda a estructurar mejor su narrativa".</li>
                         </ul>
                     </div>
                     <div class="role-card role-xolo">
@@ -276,16 +288,16 @@
                         <p class="xolo-status">✅ XOLO ACTIVO</p>
                         <ul>
                             <li>Ayuda a desarrollar una idea y un VIBE que aplique narrativa interactiva en AR.</li>
-                            <li>Entrega el GCS de la idea del genio.</li>
-                            <li>Resuelve errores de sintaxis o lógica.</li>
+                            <li>Entrega un plan de diseño con la estructura de los tres actos de la historia.</li>
+                            <li>Resuelve dudas sobre cómo configurar la interacción y el flujo narrativo.</li>
                         </ul>
                     </div>
                     <div class="role-card role-student">
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
                             <li>Trabajar con XOLO una idea y un VIBE para usar el Merge Cube en una historia interactiva.</li>
-                            <li>Traducir el GCS de XOLO a bloques en MakeCode.</li>
-                            <li>Depurar su programa con XOLO si hay errores.</li>
+                            <li>Traducir el plan de diseño de XOLO a una experiencia narrativa en Delightex.</li>
+                            <li>Consultar a XOLO si hay dudas sobre cómo estructurar los actos de la historia.</li>
                             <li>Configurar la escena en Delightex y probar la interacción.</li>
                         </ul>
                     </div>
@@ -295,9 +307,9 @@
                     <div class="slide-content">
                         <p><strong>1. 💬 Pide a XOLO que te ayude a crear:</strong></p>
                         <div class="prompt-box">
-                            <pre>"Ayúdame a idear una historia interactiva para el Merge Cube en Delightex. Dame una vibe narrativa (ej. “mitología”, “aventura científica”, “historia misteriosa”) y guíame para definir los tres actos de la historia y qué ocurre en cada uno al interactuar con el cubo. Después indícame cómo usar fragmentos de texto generados por IA y visuales para construir la narrativa AR de forma coherente y atractiva."</pre>
+                            <pre>"Ayúdame a idear una historia interactiva para el Merge Cube en Delightex. Dame una vibe narrativa (ej. "mitología", "aventura científica", "historia misteriosa") y guíame para definir los tres actos de la historia y qué ocurre en cada uno al interactuar con el cubo. Después indícame cómo usar fragmentos de texto generados por IA y visuales para construir la narrativa AR de forma coherente y atractiva."</pre>
                         </div>
-                        <p style="margin-top: 1.5rem;"><strong>2. 🔬 Experimenta y descubre con tu programa:</strong></p>
+                        <p style="margin-top: 1.5rem;"><strong>2. 🔬 Experimenta y descubre con tu historia:</strong></p>
                         <ul>
                             <li>¿La historia fluye correctamente desde el inicio hasta el cierre?</li>
                             <li>¿Qué pasa si el usuario interactúa con el cubo en un orden diferente al planeado?</li>
@@ -308,9 +320,9 @@
                     </div>
                 </div>
                 <div class="optional-script">
-                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <button class="collapsible-button">📖 Ver guion detallado (opcional)</button>
                     <div class="collapsible-content">
-                        <p class="dialogue assistant">¡Es hora de crear! Vamos a pasar de la teoría a la acción. Usen el prompt que ven en pantalla para que XOLO los ayude a idear una historia fascinante para su Merge Cube. El flujo es simple: primero ideen con XOLO, definan el 'VIBE' y los tres actos, luego lleven eso a Delightex. Por ejemplo, podrían crear una aventura científica donde el cubo es un artefacto alienígena que revela secretos al girarlo. No olviden usar las preguntas de experimentación para pulir su proyecto. Si tienen errores o dudas al configurar su escena, pregúntenle a XOLO, él los ayudará a depurar. ¡Hagamos que estas historias cobren vida!</p>
+                        <p class="dialogue assistant">¡Es hora de crear! Vamos a pasar de la teoría a la acción. Usen el prompt que ven en pantalla para que XOLO los ayude a idear una historia fascinante para su Merge Cube. El flujo es simple: primero ideen con XOLO, definan el 'VIBE' y los tres actos, luego lleven eso a Delightex. Por ejemplo, podrían crear una aventura científica donde el cubo es un artefacto alienígena que revela secretos al girarlo. No olviden usar las preguntas de experimentación para pulir su proyecto. Si tienen dudas sobre cómo estructurar su historia, pregúntenle a XOLO, él los ayudará a mejorar el flujo narrativo. ¡Hagamos que estas historias cobren vida!</p>
                     </div>
                 </div>
                 <div class="challenge-prompt">
@@ -327,6 +339,7 @@
                     <h2>⚡ Actividad 4: Gnius STORM - Compartir y Reflexionar</h2>
                     <div class="activity-timer">
                         <span class="activity-duration">⏱️ 5:00</span>
+                        <button class="timer-start-btn" data-duration="300">Iniciar</button>
                     </div>
                 </div>
                 <div class="roles-section">
@@ -349,7 +362,7 @@
                     <div class="role-card role-student">
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
-                            <li>Demuestra su programa funcionando a otra pareja.</li>
+                            <li>Demuestra su historia interactiva funcionando a otra pareja.</li>
                             <li>Explica qué elementos narrativos e interactivos funcionan bien en su escena de AR.</li>
                             <li>Comparte un descubrimiento interesante.</li>
                             <li>Da retroalimentación positiva al compañero.</li>
@@ -365,7 +378,7 @@
                         </div>
                         <div class="tps-phase">
                             <h4>👥 PAIR (2 min)</h4>
-                            <p>Con otra pareja: Demuestren su programa y expliquen su experiencia</p>
+                            <p>Con otra pareja: Demuestren su historia interactiva y expliquen su experiencia</p>
                             <p class="highlight-text">Frase guía: "Mi historia interactiva usa el cubo para revelar el clímax. Me sorprendió que la IA sugiriera diálogos tan acordes al VIBE."</p>
                         </div>
                         <div class="tps-phase">
@@ -381,6 +394,7 @@
                     <h2>✅ Actividad 5: Entrega de Evidencias</h2>
                     <div class="activity-timer">
                         <span class="activity-duration">⏱️ 5:00</span>
+                        <button class="timer-start-btn" data-duration="300">Iniciar</button>
                     </div>
                 </div>
                 <div class="roles-section">
@@ -403,9 +417,10 @@
                     <div class="role-card role-student">
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
-                            <li>Tomar screenshot de su código en MakeCode.</li>
-                            <li>Tomar screenshot de su conversación con XOLO.</li>
-                            <li>Subir ambas evidencias a Gnius Space.</li>
+                            <li>Tomar screenshot de la escena narrativa configurada en Delightex.</li>
+                            <li>Tomar screenshot de la historia interactiva funcionando con el Merge Cube.</li>
+                            <li>Tomar screenshot de su conversación con XOLO donde le ayudó a planear la narrativa.</li>
+                            <li>Subir las evidencias a Gnius Space.</li>
                             <li>Dar click en "Finalizar Misión".</li>
                         </ul>
                     </div>
@@ -415,8 +430,9 @@
                     <div class="slide-content">
                         <p><strong>📸 Para terminar, sube tus evidencias a Gnius Space:</strong></p>
                         <ol>
-                            <li>Una captura de pantalla de tu programa final en <strong>MakeCode</strong>.</li>
-                            <li>Una captura de pantalla de tu conversación con <strong>XOLO</strong> donde te dio tu GCS.</li>
+                            <li>Una captura de pantalla de tu <strong>escena narrativa</strong> configurada en Delightex.</li>
+                            <li>Una captura de pantalla de tu <strong>historia interactiva funcionando</strong> con el Merge Cube.</li>
+                            <li>Una captura de pantalla de tu conversación con <strong>XOLO</strong> donde te ayudó a planear la narrativa.</li>
                         </ol>
                         <p class="highlight-text" style="margin-top: 1rem;">¡No olvides dar click en el botón <strong>"Finalizar Misión"</strong> cuando termines!</p>
                     </div>
@@ -426,4 +442,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-</html></html>
+</html>
