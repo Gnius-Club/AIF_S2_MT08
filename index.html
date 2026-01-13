@@ -6,69 +6,6 @@
     <title>Playbook-S2-TM8</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #3b82f6;
-            --accent-color: #f59e0b;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
-            --teacher-color: #10b981;
-            --xolo-color: #6366f1;
-            --student-color: #f43f5e;
-            --timer-bg: #e2e8f0;
-        }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 1.5rem; }
-        .header-widgets { display: flex; align-items: center; gap: 20px; }
-        .timer-container { background: var(--timer-bg); padding: 8px 15px; border-radius: 20px; color: var(--text-color); font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        .timer-container button { background: var(--primary-color); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
-        .main-container { display: flex; min-height: calc(100vh - 80px); }
-        aside.activity-list { width: 80px; background: #f1f5f9; border-right: 1px solid #e2e8f0; padding: 20px 0; display: flex; flex-direction: column; align-items: center; }
-        aside.activity-list ul { list-style: none; padding: 0; margin: 0; width: 100%; }
-        aside.activity-list li { margin-bottom: 15px; text-align: center; }
-        aside.activity-list a { text-decoration: none; color: var(--text-color); font-weight: bold; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: white; border: 2px solid #cbd5e1; transition: all 0.3s; }
-        aside.activity-list a:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
-        main.content { flex: 1; padding: 40px; max-width: 1000px; margin: 0 auto; }
-        .activity-card { background: var(--card-bg); border-radius: 15px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-color); }
-        .activity-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
-        .activity-timer { display: flex; align-items: center; gap: 10px; background: #fef3c7; padding: 5px 12px; border-radius: 15px; font-weight: bold; }
-        .roles-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
-        .role-card { padding: 20px; border-radius: 10px; border-top: 4px solid; }
-        .role-teacher { background: #ecfdf5; border-color: var(--teacher-color); }
-        .role-xolo { background: #eef2ff; border-color: var(--xolo-color); }
-        .role-student { background: #fff1f2; border-color: var(--student-color); }
-        .role-card h4 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
-        .objective-box { background: #eff6ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--primary-color); }
-        .prompt-box { background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 10px; position: relative; margin: 15px 0; }
-        .prompt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.85rem; color: #94a3b8; }
-        .copy-btn { background: #475569; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
-        pre { white-space: pre-wrap; word-wrap: break-word; margin: 0; font-family: monospace; }
-        .essentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .essential-card { background: #f8fafc; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #e2e8f0; }
-        .essential-icon { font-size: 2rem; margin-bottom: 10px; }
-        .materials-checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; background: #f1f5f9; padding: 20px; border-radius: 10px; }
-        .materials-checklist label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .timeline { margin: 20px 0; position: relative; padding-left: 30px; }
-        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #cbd5e1; }
-        .timeline-item { position: relative; margin-bottom: 20px; }
-        .timeline-dot { position: absolute; left: -25px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); border: 2px solid white; }
-        .time-badge { background: #e2e8f0; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; }
-        .slide-reference { margin-top: 20px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
-        .slide-reference h4 { background: #f1f5f9; margin: 0; padding: 10px 15px; border-bottom: 1px solid #e2e8f0; }
-        .slide-content { padding: 20px; background: white; }
-        .highlight-text { font-weight: bold; color: var(--primary-color); }
-        .collapsible-button { background: #f1f5f9; border: none; width: 100%; text-align: left; padding: 10px 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; }
-        .collapsible-content { display: none; padding: 15px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
-        .dialogue { font-style: italic; color: #475569; }
-        .troubleshooting-list { background: #fff7ed; padding: 20px; border-radius: 10px; border: 1px solid #ffedd5; }
-        .troubleshooting-list ul { margin: 0; padding-left: 20px; }
-        .challenge-prompt { background: #f0fdf4; border: 1px solid #dcfce7; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .tps-structure { display: flex; flex-direction: column; gap: 15px; }
-        .tps-phase { background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
-    </style>
 </head>
 <body>
     <header>
@@ -487,52 +424,6 @@
             </div>
         </main>
     </div>
-    <script>
-        // Basic timer functionality
-        let globalTimer = 40 * 60;
-        let timerInterval;
-        const timerDisplay = document.getElementById('global-timer');
-        const startStopBtn = document.getElementById('global-start-stop');
-        const resetBtn = document.getElementById('global-reset');
-
-        function updateDisplay() {
-            const mins = Math.floor(globalTimer / 60);
-            const secs = globalTimer % 60;
-            timerDisplay.textContent = `⏱️ ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-
-        startStopBtn.addEventListener('click', () => {
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                startStopBtn.textContent = 'Start';
-            } else {
-                timerInterval = setInterval(() => {
-                    if (globalTimer > 0) {
-                        globalTimer--;
-                        updateDisplay();
-                    } else {
-                        clearInterval(timerInterval);
-                    }
-                }, 1000);
-                startStopBtn.textContent = 'Stop';
-            }
-        });
-
-        resetBtn.addEventListener('click', () => {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            globalTimer = 40 * 60;
-            updateDisplay();
-            startStopBtn.textContent = 'Start';
-        });
-
-        function copyPrompt(id) {
-            const text = document.getElementById(id).textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Prompt copiado al portapapeles');
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html></html>
